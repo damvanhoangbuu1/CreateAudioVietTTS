@@ -43,10 +43,12 @@ def merge_all_mp3_in_folder(input_folder, output_file):
     if not audio_files:
         print("Không có file MP3 trong thư mục.")
         return
+    
+    sorted_audio_files = sorted(audio_files, key=lambda x: int(''.join(filter(str.isdigit, os.path.splitext(x)[0]))))
 
     # Đọc và gộp các file MP3
     combined_audio = AudioSegment.silent(duration=0)
-    for file in audio_files:
+    for file in sorted_audio_files:
         file_path = os.path.join(input_folder, file)
         sound = AudioSegment.from_mp3(file_path)
         combined_audio += sound
