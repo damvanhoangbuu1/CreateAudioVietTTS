@@ -46,6 +46,8 @@ async def create_audio_chapter(chapter, dirAudio):
         text = text.replace('”', ' ')
         text = text.replace('【 ', ' ')
         if text != '':
+            print('-------------------------------------------------------')
+            print('CREATING CHAPTER ', chapter['track'])
             if not os.path.exists(chapter_folder_path):
                 # If the directory doesn't exist, create it.
                 os.makedirs(chapter_folder_path)
@@ -53,6 +55,7 @@ async def create_audio_chapter(chapter, dirAudio):
             merge_all_mp3_in_folder(chapter_folder_path, chapter_path)
             chapter['path'] = dirAudio + f"/{str(chapter['track'])}"
             addMetaData(chapter)
+            print('CREATED CHAPTER ', chapter['track'])
         else:
             failCnt += 1
     return
