@@ -1,0 +1,13 @@
+soundfile
+dm-haiku
+jax
+jaxlib
+typing-extensions
+matplotlib
+optax
+requests
+bs4
+nest_asyncio
+textgrid
+pydub
+eyed3
