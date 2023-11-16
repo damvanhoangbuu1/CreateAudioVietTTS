@@ -19,7 +19,12 @@ def get_book_name(soup):
     return title_tag[0].text
 
 def get_html_volume_list(book_link):
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')  # Chạy ẩn danh không hiển thị giao diện
+    chrome_options.add_argument('--no-sandbox')  # Chế độ chạy không cần sandbox
+    chrome_options.add_argument('--disable-dev-shm-usage')  # Tắt sử dụng bộ nhớ chia sẻ
+
+    driver = webdriver.Chrome(options=chrome_options)
     driver.get(book_link)
     page_html = ""
     try:
