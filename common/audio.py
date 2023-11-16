@@ -32,8 +32,8 @@ def addMetaData(sentence):
     if audiofile is not None:
         audiofile.initTag()
         audiofile.tag.track_num = sentence["track"]
-        audiofile.tag.album = sentence["title"]
-        audiofile.tag.title = sentence["album"]
+        audiofile.tag.album = sentence["album"]
+        audiofile.tag.title = sentence["title"]
         audiofile.tag.save()
 
 def merge_all_mp3_in_folder(input_folder, output_file):
