@@ -41,11 +41,13 @@ async def create_audio_chapter(chapter, dirAudio):
         response = requests.get(chapter['link'])
         soup = BeautifulSoup(response.content, "html.parser")
         text = get_chapter_content(soup).replace('"', '')
+        # remove diacritics
         text = text.replace('\n', ' ')
         text = text.replace('“', ' ')
         text = text.replace('”', ' ')
         text = text.replace('【 ', ' ')
         text = text.replace(' 】', ' ')
+        # change can not read token to can read token
         text = text.replace('w', 'qu')
         text = text.replace('W', 'Qu')
         text = text.replace('j', 'gi')
@@ -81,12 +83,15 @@ async def process_chapter(chapter):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("--link", default="https://wikisach.net/truyen/che-troi-khai-cuc-ta-co-the-cu-hien-ao-t-ZU4DzlS4CD8LOQRC", type=str)
+    parser.add_argument("--link", default="https://wikisach.net/truyen/dien-anh-the-gioi-bien-gioi-dong-minh-YXa%7ENlS4CF4vct6d", type=str)
     parser.add_argument("--start", default=0, type=int)
     parser.add_argument("--length", default=1, type=int)
-    parser.add_argument("--track", default=0, type=int)
 
     args = parser.parse_args()
+
+    print("Link: ", args.link)
+    print("Start: ", args.start)
+    print("Length: ", args.length)
 
     chapters = get_all_chapter(args.link, args.start, args.length)
 
