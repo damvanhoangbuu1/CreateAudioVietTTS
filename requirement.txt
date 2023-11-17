@@ -12,3 +12,4 @@ textgrid
 pydub
 eyed3
 selenium
+pip install ipython
