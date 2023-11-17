@@ -68,7 +68,8 @@ async def create_audio_chapter(chapter, dirAudio):
             merge_all_mp3_in_folder(chapter_folder_path, chapter_path)
             chapter['path'] = dirAudio + f"/{str(chapter['track'])}"
             addMetaData(chapter)
-            ipd.Audio(chapter['path']+".mp3")
+            print(f"{chapter_path}.mp3")
+            ipd.Audio(filename=f"{chapter_path}.mp3")
             print('CREATED CHAPTER ', chapter['title'])
         else:
             failCnt += 1
