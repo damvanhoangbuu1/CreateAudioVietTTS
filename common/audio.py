@@ -2,7 +2,6 @@ from pydub import AudioSegment
 import eyed3
 import soundfile as sf
 import os
-import IPython.display as ipd
 
 from vietTTS.hifigan.mel2wave import mel2wave
 from vietTTS.nat.text2mel import text2mel
@@ -23,7 +22,6 @@ def toMp3(sentence):
     audio.export(sentence["path"]+".mp3", format="mp3")
     #add track, title, album
     addMetaData(sentence)
-    ipd.Audio(filename=sentence["path"]+".mp3")
 
     if os.path.exists(sentence["path"]+".wav"):
         # If it exists, delete the file
