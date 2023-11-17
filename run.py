@@ -56,6 +56,7 @@ async def create_audio_chapter(chapter, dirAudio):
         text = text.replace('F', 'Ph')
         text = text.replace('z', 'd')
         text = text.replace('Z', 'D')
+        text = replace_numbers_with_text_vietnamese(text)
         if text != '':
             print('-------------------------------------------------------')
             print('CREATING CHAPTER ', chapter['title'])
@@ -83,7 +84,7 @@ async def process_chapter(chapter):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("--link", default="https://wikisach.net/truyen/dien-anh-the-gioi-bien-gioi-dong-minh-YXa%7ENlS4CF4vct6d", type=str)
+    parser.add_argument("--link", default="https://wikisach.net/truyen/lao-tu-la-frieza-XDAWiDu26zL%7Epy2p", type=str)
     parser.add_argument("--start", default=0, type=int)
     parser.add_argument("--length", default=1, type=int)
 
