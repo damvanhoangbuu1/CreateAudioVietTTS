@@ -69,7 +69,7 @@ async def create_audio_chapter(chapter, dirAudio):
             chapter['path'] = dirAudio + f"/{str(chapter['track'])}"
             addMetaData(chapter)
             print(chapter_path)
-            ipd.Audio(filename=chapter_path)
+            ipd.display(ipd.Audio(filename=chapter_path))
             print('CREATED CHAPTER ', chapter['title'])
         else:
             failCnt += 1
