@@ -61,22 +61,22 @@ def convert_to_haiku(a, h, device):
         pickle.dump(hk_map, f)
 
 
-# def main():
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument("--checkpoint-file", required=True)
-#     parser.add_argument("--config-file", required=True)
-#     a = parser.parse_args()
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--checkpoint-file", required=True)
+    parser.add_argument("--config-file", required=True)
+    a = parser.parse_args()
 
-#     config_file = a.config_file
-#     with open(config_file) as f:
-#         data = f.read()
+    config_file = a.config_file
+    with open(config_file) as f:
+        data = f.read()
 
-#     json_config = json.loads(data)
-#     h = AttrDict(json_config)
+    json_config = json.loads(data)
+    h = AttrDict(json_config)
 
-#     device = torch.device("cpu")
-#     convert_to_haiku(a, h, device)
+    device = torch.device("cpu")
+    convert_to_haiku(a, h, device)
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
