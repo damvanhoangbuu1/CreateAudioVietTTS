@@ -58,6 +58,7 @@ def convert_to_haiku(a, h, device):
 
     FLAGS.ckpt_dir.mkdir(parents=True, exist_ok=True)
     with open(FLAGS.ckpt_dir / "hk_hifi.pickle", "wb") as f:
+        print("Saving", FLAGS.ckpt_dir / "hk_hifi.pickle")
         pickle.dump(hk_map, f)
 
 
@@ -66,6 +67,9 @@ def main():
     parser.add_argument("--checkpoint-file", required=True)
     parser.add_argument("--config-file", required=True)
     a = parser.parse_args()
+
+    print("Checkpoint: ", a.checkpoint_file)
+    print("Config: ", a.config_file)
 
     config_file = a.config_file
     with open(config_file) as f:
