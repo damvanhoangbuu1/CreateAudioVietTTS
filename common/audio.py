@@ -20,8 +20,6 @@ def toMp3(sentence):
     #convert mp3
     audio = AudioSegment.from_wav(str(sentence["path"]+".wav"))
     audio.export(sentence["path"]+".mp3", format="mp3")
-    #add track, title, album
-    addMetaData(sentence)
 
     if os.path.exists(sentence["path"]+".wav"):
         # If it exists, delete the file
